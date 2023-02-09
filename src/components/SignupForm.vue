@@ -19,7 +19,7 @@ export default {
       console.log(displayName.value, email.value, password.value);
     }
 
-    return { displayName, email, password }
+    return { displayName, email, password, handleSubmit }
   }
 }
 </script>
