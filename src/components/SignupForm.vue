@@ -2,7 +2,7 @@
   <form @submit.prevent="handleSubmit()">
     <input type="text" required placeholder="Display Name" v-model="displayName">
     <input type="email" required placeholder="Email" v-model="email">
-    <input type="password" required v-model="password">
+    <input type="password" required v-model="password" placeholder="Password">
     <button>Sign up</button>
   </form>
 </template>
