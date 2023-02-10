@@ -2,6 +2,7 @@
   <form @submit.prevent="handleSubmit">
     <input type="email" required placeholder="Email" v-model="email">
     <input type="password" required placeholder="Password" v-model="password">
+    <div class="error">{{ error }}</div>
     <button>Log in</button>
   </form>
 </template>
@@ -20,7 +21,7 @@ export default {
       await login(email.value, password.value)
     }
 
-    return { email, password, handleSubmit }
+    return { email, password, handleSubmit, error }
   }
 }
 </script>
