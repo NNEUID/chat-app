@@ -9,7 +9,7 @@ const logout = async () => {
 
 const useLogout = () => {
 
-  return { error }
+  return { logout, error }
 }
 
 export default useLogout
