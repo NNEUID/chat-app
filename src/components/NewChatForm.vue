@@ -15,6 +15,7 @@ export default {
     const message = ref('')
 
     const { user } = getUser()
+    const add = 1
 
     const handleSubmit = async () => {
       const chat = {
