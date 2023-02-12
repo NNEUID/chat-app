@@ -5,13 +5,14 @@ import { ref } from "vue";
 
 
 
-const useCollection = () => {
+const useCollection = (collectionPath) => {
 
   const error = ref(null)
 
-  const addChat = async (chat) => {
+  const addChat = async () => {
+    error.value = null
     try {
-      await addDoc(collection(db, 'chats'), chat)
+      await addDoc(collection(db, collectionPath), chat)
     } catch (err) {
       error.message = err.message
     }
