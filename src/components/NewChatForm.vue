@@ -9,6 +9,7 @@
 import { ref } from '@vue/reactivity'
 import getUser from '@/composables/getUser'
 import { Timestamp } from '@firebase/firestore'
+import useCollection from '../composables/useCollection'
 export default {
   setup() {
     const message = ref('')
