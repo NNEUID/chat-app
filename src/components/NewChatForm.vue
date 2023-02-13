@@ -2,6 +2,7 @@
   <form>
     <textarea placeholder="Type a message and hit enter to send..." v-model="message"
       @keypress.enter.prevent="handleSubmit"></textarea>
+    <div class="error">{{ error }}</div>
   </form>
 </template>
 
@@ -15,7 +16,7 @@ export default {
     const message = ref('')
 
     const { user } = getUser()
-    const add = 1
+    const { error, addChat } = useCollection('messages')
 
     const handleSubmit = async () => {
       const chat = {
@@ -24,11 +25,13 @@ export default {
         createdAt: Timestamp.fromDate(new Date())
       }
 
-      console.log(chat);
-      message.value = ''
+      await addChat(chat)
+      if (!error.value) {
+        message.value = ''
+      }
     }
 
-    return { message, handleSubmit }
+    return { message, handleSubmit, error }
   }
 }
 </script>

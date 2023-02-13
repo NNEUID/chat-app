@@ -9,7 +9,7 @@ const useCollection = (collectionPath) => {
 
   const error = ref(null)
 
-  const addChat = async () => {
+  const addChat = async (chat) => {
     error.value = null
     try {
       await addDoc(collection(db, collectionPath), chat)
@@ -18,7 +18,7 @@ const useCollection = (collectionPath) => {
     }
   }
 
-  return { error, sendChat }
+  return { error, addChat }
 }
 
 export default useCollection
