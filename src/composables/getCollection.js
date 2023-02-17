@@ -10,16 +10,18 @@ const getCollection = (collectionPath) => {
   onSnapshot(chatsQuery, (snap) => {
     const results = []
     snap.docs.forEach(doc => {
-
-
       // code RIGHT will execute if code on LEFT is TRUE
       doc.data().createdAt && results.push({ ...doc.data(), id: doc.id })
       documents.value = results
       error.value == null
+    }, (err) => {
+      console.log(err.message)
+      documents.value = null
+      error.value = 'could not fetch data'
     })
   })
 
-
+  return { documents, error }
 
 }
 
